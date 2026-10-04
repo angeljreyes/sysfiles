@@ -1,0 +1,5 @@
+# Switch to throughput-performance when AC is plugged in
+SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="/usr/bin/tuned-adm profile throughput-performance"
+
+# Switch to powersave when on battery
+SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/usr/bin/tuned-adm profile powersave"
